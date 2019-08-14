@@ -276,6 +276,8 @@ func (srv *endlessServer) ListenAndServeTLS(certFile, keyFile string) (err error
 	}
 
 	log.Println(syscall.Getpid(), srv.Addr)
+	srv.BeforeBegin(srv.Addr)
+
 	return srv.Serve()
 }
 
